@@ -1,174 +1,60 @@
-/* =====================================================
-   THEME FILE  -  css/theme.css
-   -----------------------------------------------------
-   The ENTIRE visual identity of the site lives here.
-   Every colour, font, spacing and radius is a variable.
-   style.css only ever uses var(--token) - never a raw
-   colour - so editing this one file re-themes the site.
 
-   Themes:  dark (default) | light | emerald
-   Switch:  <html data-theme="..."> (toggle button in nav)
-   Git exercise: change ONLY this file on a theme/* branch.
-   ===================================================== */
+/* =========================================
+   THEME VARIABLES
+   This file contains colour variables only.
+========================================= */
 
-
-/* ---------- 1. Shared tokens (same in every theme) ---------- */
 :root {
-    /* Typography */
-    --font-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-heading: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-size-base: 16px;
-    --font-size-h1: clamp(2.6rem, 6vw, 4.8rem);
-    --font-size-h2: clamp(2rem, 5vw, 3rem);
-
-    /* Spacing */
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-    --section-padding: 100px;
-
-    /* Layout */
-    --max-width: 1120px;
-    --border-radius: 15px;
-    --border-radius-sm: 10px;
-    --border-radius-pill: 30px;
-    --transition-speed: 0.3s;
-}
-
-
-/* ---------- 2. Dark theme (default) ---------- */
-:root,
-[data-theme="dark"] {
     color-scheme: dark;
 
-    --bg-primary: #080808;
-    --bg-secondary: #0e0e0e;
-    --bg-card: #151010;
-    --bg-header: rgba(8, 8, 8, 0.92);
+    --bg: #080808;
+    --surface: #100d0e;
+    --card: #151112;
 
-    --text-primary: #ffffff;
-    --text-secondary: #c5c5c5;
-    --text-muted: #888888;
-    --on-accent: #ffffff;
+    --text: #f7f7f7;
+    --muted: #c2bfc0;
 
-    --accent: #E50914;
-    --accent-dark: #8B0000;
-    --accent-light: #ff2934;
-    --accent-soft: rgba(229, 9, 20, 0.15);
+    --accent: #e50914;
+    --accent-dark: #8b0000;
 
-    --border: rgba(229, 9, 20, 0.25);
+    --border: rgba(229, 9, 20, 0.30);
     --shadow: rgba(229, 9, 20, 0.18);
-    --shadow-soft: rgba(0, 0, 0, 0.25);
-
-    --overlay: rgba(0, 0, 0, 0.94);
-    --overlay-fade: rgba(0, 0, 0, 0.95);
-    --on-overlay: #ffffff;
-    --on-overlay-muted: #dddddd;
-
-    --loader-bg: #080808;
-    --loader-track: #333333;
-    --hero-glow: rgba(139, 0, 0, 0.22);
-    --card-tint: rgba(229, 9, 20, 0.12);
-
-    --gradient: linear-gradient(135deg, #E50914, #8B0000);
-
-    /* Family section - warm sub-palette */
-    --family-accent: #ff9f43;
-    --family-accent-light: #ffc078;
-    --family-bg: #140d07;
-    --family-card: #1f140b;
-    --family-border: rgba(255, 159, 67, 0.3);
-    --family-shadow: rgba(255, 159, 67, 0.2);
-    --family-gradient: linear-gradient(135deg, #ff9f43, #c0561f);
 }
 
+/* LIGHT THEME */
 
-/* ---------- 3. Light theme ---------- */
-[data-theme="light"] {
+html[data-theme="light"] {
     color-scheme: light;
 
-    --bg-primary: #f5f5f5;
-    --bg-secondary: #ffffff;
-    --bg-card: #ffffff;
-    --bg-header: rgba(255, 255, 255, 0.94);
+    --bg: #f5f5f5;
+    --surface: #ffffff;
+    --card: #ffffff;
 
-    --text-primary: #171717;
-    --text-secondary: #444444;
-    --text-muted: #777777;
-    --on-accent: #ffffff;
+    --text: #171717;
+    --muted: #555555;
 
     --accent: #c90016;
-    --accent-dark: #8B0000;
-    --accent-light: #ef233c;
-    --accent-soft: rgba(201, 0, 22, 0.10);
+    --accent-dark: #8b0000;
 
     --border: rgba(201, 0, 22, 0.22);
     --shadow: rgba(201, 0, 22, 0.12);
-    --shadow-soft: rgba(0, 0, 0, 0.12);
-
-    --overlay: rgba(10, 10, 10, 0.92);
-    --overlay-fade: rgba(10, 10, 10, 0.92);
-    --on-overlay: #ffffff;
-    --on-overlay-muted: #e6e6e6;
-
-    --loader-bg: #f5f5f5;
-    --loader-track: #dddddd;
-    --hero-glow: rgba(201, 0, 22, 0.10);
-    --card-tint: rgba(201, 0, 22, 0.08);
-
-    --gradient: linear-gradient(135deg, #e50914, #8b0000);
-
-    --family-accent: #c2570c;
-    --family-accent-light: #e07a2f;
-    --family-bg: #fff4e6;
-    --family-card: #ffffff;
-    --family-border: rgba(194, 87, 12, 0.3);
-    --family-shadow: rgba(194, 87, 12, 0.18);
-    --family-gradient: linear-gradient(135deg, #e8892f, #b34a0a);
 }
 
+/* EMERALD THEME */
 
-/* ---------- 4. Emerald theme ---------- */
-[data-theme="emerald"] {
+html[data-theme="emerald"] {
     color-scheme: dark;
 
-    --bg-primary: #050b09;
-    --bg-secondary: #09130f;
-    --bg-card: #101d17;
-    --bg-header: rgba(5, 11, 9, 0.94);
+    --bg: #050b09;
+    --surface: #09130f;
+    --card: #101d17;
 
-    --text-primary: #f4fff8;
-    --text-secondary: #c3d8ca;
-    --text-muted: #829b8c;
-    --on-accent: #04130c;
+    --text: #f4fff8;
+    --muted: #c3d8ca;
 
     --accent: #00c878;
-    --accent-dark: #006b42;
-    --accent-light: #43f0a4;
-    --accent-soft: rgba(0, 200, 120, 0.13);
+    --accent-dark: #007c4a;
 
     --border: rgba(0, 200, 120, 0.25);
     --shadow: rgba(0, 200, 120, 0.17);
-    --shadow-soft: rgba(0, 0, 0, 0.3);
-
-    --overlay: rgba(0, 0, 0, 0.94);
-    --overlay-fade: rgba(0, 0, 0, 0.95);
-    --on-overlay: #f4fff8;
-    --on-overlay-muted: #c3d8ca;
-
-    --loader-bg: #050b09;
-    --loader-track: #1c2e25;
-    --hero-glow: rgba(0, 107, 66, 0.25);
-    --card-tint: rgba(0, 200, 120, 0.10);
-
-    --gradient: linear-gradient(135deg, #43f0a4, #008f5a);
-
-    --family-accent: #f5b942;
-    --family-accent-light: #ffd479;
-    --family-bg: #0f120a;
-    --family-card: #1a1d10;
-    --family-border: rgba(245, 185, 66, 0.3);
-    --family-shadow: rgba(245, 185, 66, 0.18);
-    --family-gradient: linear-gradient(135deg, #f5b942, #b9770e);
 }
