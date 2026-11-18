@@ -1,16 +1,18 @@
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Jeevan Adithya - Computer Science Graduate, Developer and Problem Solver.">
+    <meta name="description" content="Jeevan Adithya — Computer Science Graduate, Developer and Problem Solver.">
     <meta name="theme-color" content="#080808">
 
     <title>Jeevan Adithya | Portfolio</title>
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23080808'/%3E%3Ctext x='50%25' y='67%25' font-size='48' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23E50914'%3EJA%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/style.css">
@@ -20,53 +22,51 @@
 
 <body>
 
-    <a href="#main" class="skip-link">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- PAGE LOADER -->
     <div class="preloader" id="preloader">
-        <div class="loader-logo">JA</div>
+        <div class="loader-logo">JA<span>.</span></div>
         <div class="loader-line"></div>
     </div>
 
-    <!-- SCROLL PROGRESS -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- CUSTOM CURSOR -->
-    <div class="custom-cursor" id="customCursor"></div>
-
-    <!-- BACKGROUND PARTICLES -->
-    <div class="particles" id="particles" aria-hidden="true"></div>
-
     <!-- NAVIGATION -->
-    <header class="header" id="header">
-        <nav class="navbar container">
+    <header class="site-header" id="header">
+        <nav class="navbar container" aria-label="Main navigation">
 
-            <a href="#hero" class="logo">JA<span>.</span></a>
+            <a href="#hero" class="logo" aria-label="Jeevan Adithya home">
+                JA<span>.</span>
+            </a>
 
-            <button class="menu-toggle" id="menuToggle"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="navMenu">
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <div class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#journey" class="nav-link">Journey</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#interests" class="nav-link">Interests</a>
-                <a href="#family" class="nav-link">Family</a>
-                <a href="#hobbies" class="nav-link">Hobbies</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link active" href="#hero">Home</a></li>
+                <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#journey">Journey</a></li>
+                <li><a class="nav-link" href="#skills">Skills</a></li>
+                <li><a class="nav-link" href="#projects">Projects</a></li>
+                <li><a class="nav-link" href="#interests">Interests</a></li>
+                <li><a class="nav-link" href="#family">Family</a></li>
+                <li><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                <li><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
 
-            <button class="theme-toggle" id="themeToggle"
-                    aria-label="Change website theme"
-                    title="Change theme">
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Switch colour theme"
+            >
                 <span id="themeIcon">☾</span>
             </button>
 
@@ -75,134 +75,140 @@
 
     <main id="main">
 
-        <!-- HERO SECTION -->
+        <!-- HERO -->
         <section class="hero section" id="hero">
-            <div class="container hero-content">
+            <div class="hero-content container">
 
-                <div class="hero-text reveal">
+                <div class="hero-text">
                     <span class="section-tag">
-                        <span class="red-dot"></span>
-                        WELCOME TO MY PORTFOLIO
+                        HELLO, WELCOME TO MY WORLD
                     </span>
 
                     <h1>
-                        Hi, I'm <span class="gradient-text">Jeevan Adithya</span>
+                        I'm <span class="gradient-text">Jeevan Adithya</span>
                     </h1>
 
                     <h2 class="hero-subtitle">
-                        I'm a <span id="typingText">Developer</span><span class="typing-cursor">|</span>
+                        I'm a
+                        <span id="typingText">Computer Science Graduate</span>
+                        <span class="typing-cursor">|</span>
                     </h2>
 
-                    <p class="hero-tagline">Software Developer | Problem Solver | Lifelong Learner</p>
-
                     <p class="hero-description">
-                        Welcome to my digital space. I'm Jeevan Adithya —
-                        Developer, Problem Solver and Technology Enthusiast.
-                        I enjoy building useful applications, learning new
-                        technologies and solving real-world problems.
+                        Welcome to my digital space. I'm a developer,
+                        problem solver and technology enthusiast passionate
+                        about building useful digital experiences and
+                        continuously learning new things.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="#journey" class="btn btn-primary">Explore My Journey →</a>
-                        <a href="#projects" class="btn btn-outline">View Projects</a>
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Work <span aria-hidden="true">↗</span>
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
                     </div>
 
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/jeevan-adithya-09b12a256/"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="LinkedIn">in</a>
-                        <a href="https://github.com/jeevanadithya624"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="GitHub">gh</a>
-                        <a href="mailto:adithyajeevan83@gmail.com"
-                           aria-label="Email">@</a>
+                    <div class="hero-meta">
+                        <span><i></i> Computer Science Graduate</span>
+                        <span><i></i> Graduate Trainee · Psiog</span>
                     </div>
                 </div>
 
-                <div class="hero-image-area reveal">
+                <div class="hero-visual">
+                    <div class="hero-image-glow"></div>
+
                     <div class="hero-image-frame">
-                        <!-- To use a real photo, replace this block with:
-                             <img src="images/hero/profile.jpg" alt="Portrait of Jeevan Adithya"> -->
-                        <div class="photo-placeholder">
-                            <div class="placeholder-icon">JA</div>
-                            <p>Jeevan Adithya</p>
-                            <span>Developer at Psiog</span>
-                        </div>
+                        <img
+                            src="images/hero/profile.jpg"
+                            alt="Portrait of Jeevan Adithya"
+                            class="profile-photo"
+                            loading="eager"
+                            fetchpriority="high"
+                        >
                     </div>
 
-                    <div class="floating-card availability-card">
-                        <span class="status-dot"></span>
-                        <div>
-                            <strong>Graduate Trainee</strong>
-                            <small>At Psiog</small>
-                        </div>
-                    </div>
-
-                    <div class="floating-card developer-card">
-                        <span class="floating-code">&lt;/&gt;</span>
-                        <div>
-                            <strong>Developer</strong>
-                            <small>Problem Solver</small>
-                        </div>
-                    </div>
+                    <p class="portrait-caption">
+                        JEEVAN ADITHYA <span>·</span> DEVELOPER
+                    </p>
                 </div>
-
             </div>
 
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+            <a
+                href="#about"
+                class="scroll-down"
+                aria-label="Scroll to About section"
+            >
                 <span></span>
             </a>
         </section>
 
-        <!-- ABOUT SECTION -->
+        <!-- ABOUT -->
         <section class="section about-section" id="about">
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div class="section-heading">
                     <span class="section-tag">A LITTLE ABOUT ME</span>
-                    <h2>About <span class="gradient-text">Me</span></h2>
+                    <h2>
+                        Behind the <span class="accent-text">Developer</span>
+                    </h2>
+                    <p>Curious mind. Creative thinking. Continuous learning.</p>
                 </div>
 
                 <div class="about-content">
-                    <div class="about-photo reveal">
-                        <div class="about-photo-placeholder">
-                            <span>JA</span>
-                            <p>Jeevan Adithya</p>
-                        </div>
+                    <div class="about-image-frame">
+                        <img
+                            src="images/hero/profile.jpg"
+                            alt="Jeevan Adithya"
+                            loading="lazy"
+                        >
                     </div>
 
-                    <div class="about-text reveal">
-                        <h3>Computer Science Graduate & Developer</h3>
+                    <div class="about-text">
+                        <h3>
+                            Computer Science Graduate | Developer | Problem Solver
+                        </h3>
 
                         <p>
-                            I'm Jeevan Adithya, a Computer Science and
-                            Engineering graduate from Sri Krishna College
-                            of Engineering and Technology.
+                            I'm a Computer Science and Engineering graduate
+                            from Sri Krishna College of Engineering and Technology.
+                            I'm passionate about technology, software development
+                            and solving real-world problems through innovative
+                            solutions.
                         </p>
 
                         <p>
-                            I am currently working as a Graduate Trainee
-                            at Psiog, where I continue to strengthen my
-                            technical knowledge and professional skills.
+                            I enjoy learning new technologies, developing
+                            applications and continuously improving my
+                            technical and problem-solving abilities.
                         </p>
 
                         <p>
-                            I enjoy working with C#, .NET, SQL Server,
-                            Git and GitHub. I believe in continuous learning,
-                            practical problem-solving and improving through
-                            hands-on experience.
+                            Currently, I'm working as a Graduate Trainee at
+                            Psiog, developing my skills in C#, .NET,
+                            SQL Server, Git and GitHub.
                         </p>
 
                         <div class="about-details">
-                            <div><strong>Name:</strong> Jeevan Adithya</div>
-                            <div><strong>Degree:</strong> BE Computer Science</div>
-                            <div><strong>College:</strong> Sri Krishna College of Engineering and Technology</div>
-                            <div><strong>Role:</strong> Graduate Trainee</div>
-                            <div><strong>Company:</strong> Psiog</div>
+                            <div>
+                                <strong>2026</strong>
+                                <span>Graduation year</span>
+                            </div>
+
+                            <div>
+                                <strong>Psiog</strong>
+                                <span>Current workplace</span>
+                            </div>
+
+                            <div>
+                                <strong>C# · .NET</strong>
+                                <span>Current learning focus</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -210,75 +216,48 @@
         <section class="section journey-section" id="journey">
             <div class="container">
 
-                <div class="section-heading reveal">
-                    <span class="section-tag">MY PROFESSIONAL JOURNEY</span>
-                    <h2>Education & <span class="gradient-text">Experience</span></h2>
-                    <p>My academic background and professional milestones.</p>
+                <div class="section-heading">
+                    <span class="section-tag">MY BACKGROUND</span>
+                    <h2>
+                        Education &amp; <span class="accent-text">Experience</span>
+                    </h2>
+                    <p>The experiences shaping my professional journey.</p>
                 </div>
 
                 <div class="timeline">
 
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-card-head">
-                                <span class="timeline-icon" aria-hidden="true">💼</span>
-                                <div>
-                                    <span class="timeline-date">August 2026 – Present</span>
-                                    <h3>Graduate Trainee</h3>
-                                    <h4>Psiog</h4>
-                                </div>
-                            </div>
-                            <p>
-                                Building professional experience and developing
-                                technical skills in software development,
-                                C#, .NET, SQL Server and Git.
-                            </p>
-                            <div class="timeline-more" id="journey-more-1">
-                                <p>
-                                    Learning how real teams work: version control
-                                    with Git branching and pull requests, code
-                                    reviews, and automated build and deployment
-                                    pipelines with GitHub Actions.
-                                </p>
-                            </div>
-                            <button type="button" class="show-more"
-                                    aria-expanded="false"
-                                    aria-controls="journey-more-1">Show more</button>
-                        </div>
-                    </div>
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
 
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <div class="timeline-card-head">
-                                <span class="timeline-icon" aria-hidden="true">🎓</span>
-                                <div>
-                                    <span class="timeline-date">2022 – 2026</span>
-                                    <h3>Bachelor of Engineering</h3>
-                                    <h4>Computer Science and Engineering</h4>
-                                </div>
-                            </div>
+                            <span class="timeline-date">AUG 2026 – PRESENT</span>
+                            <h3>Graduate Trainee</h3>
+                            <h4>Psiog</h4>
                             <p>
-                                Sri Krishna College of Engineering and Technology.
-                                Graduated in 2026.
+                                Developing practical skills in C#, .NET,
+                                SQL Server, Git and GitHub while building
+                                software engineering experience.
                             </p>
-                            <div class="timeline-more" id="journey-more-2">
-                                <p>
-                                    Studied programming in C++, database management
-                                    and data warehousing, and object-oriented design.
-                                    Applied it in projects such as the Train Shunting
-                                    System and several SQL Server database designs.
-                                </p>
-                            </div>
-                            <button type="button" class="show-more"
-                                    aria-expanded="false"
-                                    aria-controls="journey-more-2">Show more</button>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+
+                        <div class="timeline-card">
+                            <span class="timeline-date">2022 – 2026</span>
+                            <h3>B.E. Computer Science and Engineering</h3>
+                            <h4>
+                                Sri Krishna College of Engineering and Technology
+                            </h4>
+                            <p>
+                                Built a foundation in programming, computer
+                                science, databases and software development.
+                            </p>
+                        </div>
+                    </article>
 
                 </div>
-
             </div>
         </section>
 
@@ -286,92 +265,82 @@
         <section class="section skills-section" id="skills">
             <div class="container">
 
-                <div class="section-heading reveal">
-                    <span class="section-tag">MY TECHNICAL TOOLKIT</span>
-                    <h2>Skills & <span class="gradient-text">Technologies</span></h2>
-                    <p>Technologies I work with and continue to learn.</p>
+                <div class="section-heading">
+                    <span class="section-tag">MY TOOLKIT</span>
+                    <h2>
+                        Skills &amp; <span class="accent-text">Technologies</span>
+                    </h2>
+                    <p>Technologies I've studied and worked with.</p>
                 </div>
 
                 <div class="skills-grid">
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>C#</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>C#</h3>
                             <span>Learning</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="75%"></div>
+                        <div class="skill-bar">
+                            <span data-width="76%"></span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>.NET</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>.NET</h3>
                             <span>Learning</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="70%"></div>
+                        <div class="skill-bar">
+                            <span data-width="72%"></span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>SQL Server</span>
-                            <span>Learning</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>SQL Server</h3>
+                            <span>Working knowledge</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="80%"></div>
+                        <div class="skill-bar">
+                            <span data-width="78%"></span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>Git & GitHub</span>
-                            <span>Learning</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>C++</h3>
+                            <span>Working knowledge</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="75%"></div>
+                        <div class="skill-bar">
+                            <span data-width="72%"></span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>C++</span>
-                            <span>Learning</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>HTML &amp; CSS</h3>
+                            <span>Working knowledge</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="70%"></div>
+                        <div class="skill-bar">
+                            <span data-width="75%"></span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="skill-item reveal">
-                        <div class="skill-heading">
-                            <span>HTML & CSS</span>
-                            <span>Learning</span>
+                    <article class="skill-card">
+                        <div class="skill-info">
+                            <h3>Git &amp; GitHub</h3>
+                            <span>Working knowledge</span>
                         </div>
-                        <div class="skill-track">
-                            <div class="skill-progress" data-width="75%"></div>
+                        <div class="skill-bar">
+                            <span data-width="70%"></span>
                         </div>
-                    </div>
+                    </article>
 
                 </div>
 
-                <p class="skill-note">
-                    Always learning: these bars reflect my current confidence
-                    and will keep growing.
+                <p class="skills-note">
+                    Progress bars are visual indicators of my current
+                    learning focus, not formal proficiency ratings.
                 </p>
-
-            </div>
-        </section>
-
-        <!-- QUOTE -->
-        <section class="quote-section">
-            <div class="container reveal">
-                <span class="quote-mark">“</span>
-                <blockquote>
-                    The best way to predict the future is to invent it.
-                </blockquote>
-                <span class="quote-caption">— Alan Kay</span>
             </div>
         </section>
 
@@ -379,339 +348,401 @@
         <section class="section projects-section" id="projects">
             <div class="container">
 
-                <div class="section-heading reveal">
-                    <span class="section-tag">THINGS I'VE WORKED ON</span>
-                    <h2>My <span class="gradient-text">Projects</span></h2>
-                    <p>A few projects that reflect my technical learning.</p>
+                <div class="section-heading">
+                    <span class="section-tag">SELECTED WORK</span>
+                    <h2>
+                        Featured <span class="accent-text">Projects</span>
+                    </h2>
+                    <p>Projects from my learning and development journey.</p>
                 </div>
 
-                <div class="project-grid">
+                <div class="projects-grid">
 
-                    <article class="project-card reveal">
+                    <article class="project-card">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900"
-                                 alt="Computer programming workspace"
-                                 loading="lazy">
+                            <img
+                                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                                alt="Dog portrait"
+                                loading="lazy"
+                            >
                         </div>
-                        <div class="project-info">
-                            <span class="project-number">01</span>
-                            <h3>Train Shunting System</h3>
-                            <p>C++ | Object-Oriented Programming | Algorithms</p>
+
+                        <div class="project-content">
+                            <span class="project-number">PROJECT 01</span>
+
+                            <h3>
+                                Deep Learning Based Dog Disease Detection
+                                System Using Image Classification
+                            </h3>
+
+                            <p>
+                                An image classification-based project focused
+                                on identifying dog diseases using deep learning
+                                techniques.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>Deep Learning</span>
+                                <span>Image Classification</span>
+                                <span>AI</span>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="project-card reveal">
+                    <article class="project-card">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900"
-                                 alt="Database server infrastructure"
-                                 loading="lazy">
+                            <img
+                                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                                alt="Artificial intelligence visual"
+                                loading="lazy"
+                            >
                         </div>
-                        <div class="project-info">
-                            <span class="project-number">02</span>
-                            <h3>Database Projects</h3>
-                            <p>SQL Server | DBMS | Data Warehousing</p>
+
+                        <div class="project-content">
+                            <span class="project-number">PROJECT 02</span>
+
+                            <h3>AI Based Disease Analysis System</h3>
+
+                            <p>
+                                An AI-based system concept designed to analyse
+                                disease-related information and support
+                                disease analysis.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>Artificial Intelligence</span>
+                                <span>Data Analysis</span>
+                                <span>Healthcare</span>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900"
-                                 alt="Electronic technology components"
-                                 loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <span class="project-number">03</span>
-                            <h3>C# & .NET Practice</h3>
-                            <p>C# | .NET | OOP | Design Patterns</p>
-                        </div>
-                    </article>
+                </div>
+            </div>
+        </section>
 
+        <!-- PERSONAL INTERESTS -->
+        <section class="section interests-section" id="interests">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">THINGS I ENJOY</span>
+                    <h2>
+                        My Personal <span class="accent-text">Interests</span>
+                    </h2>
+                    <p>
+                        A few things that make me who I am outside of work.
+                    </p>
+                </div>
+
+                <!-- MUSIC -->
+                <div class="interest-category">
+                    <div class="category-heading">
+                        <span class="category-number">01</span>
+                        <div>
+                            <h3>Music is My Escape</h3>
+                            <p>Artists and sounds that are always part of my day.</p>
+                        </div>
+                    </div>
+
+                    <div class="interest-gallery">
+
+                        <article class="interest-item">
+                            <img src="images/interests/weeknd.jpg" alt="The Weeknd" loading="lazy">
+                            <div>
+                                <h4>The Weeknd</h4>
+                                <p>Atmospheric sounds and R&amp;B.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img src="images/interests/dualipa.jpg" alt="Dua Lipa" loading="lazy">
+                            <div>
+                                <h4>Dua Lipa</h4>
+                                <p>Pop energy and great beats.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img src="images/interests/anirudh.jpg" alt="Anirudh" loading="lazy">
+                            <div>
+                                <h4>Anirudh</h4>
+                                <p>My favourite Tamil music composer.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- CINEMA -->
+                <div class="interest-category">
+                    <div class="category-heading">
+                        <span class="category-number">02</span>
+                        <div>
+                            <h3>My Love for Cinema</h3>
+                            <p>Performances and filmmaking that stay with me.</p>
+                        </div>
+                    </div>
+
+                    <div class="interest-gallery">
+
+                        <article class="interest-item">
+                            <img src="images/interests/str.jpg" alt="Silambarasan TR" loading="lazy">
+                            <div>
+                                <h4>Silambarasan TR</h4>
+                                <p>Style, screen presence and versatility.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img src="images/interests/rajinikanth.jpg" alt="Rajinikanth" loading="lazy">
+                            <div>
+                                <h4>Rajinikanth</h4>
+                                <p>An unmistakable screen icon.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img src="images/interests/tamil-cinema.jpg" alt="Sandeep Reddy Vanga" loading="lazy">
+                            <div>
+                                <h4>Sandeep Reddy Vanga</h4>
+                                <p>A distinctive filmmaking style.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- FOOD -->
+                <div class="interest-category">
+                    <div class="category-heading">
+                        <span class="category-number">03</span>
+                        <div>
+                            <h3>Good Food, Great Mood</h3>
+                            <p>
+                                Always happy to explore good food and
+                                different cuisines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="interest-gallery">
+
+                        <article class="interest-item">
+                            <img
+                                src="https://ujggcczqvpwpwruveupy.supabase.co/storage/v1/object/public/product-images/1758322611083-Chicken%20Biryani.503Z.webp?t=1770940800060"
+                                alt="Delicious chicken biryani"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Biryani</h4>
+                                <p>A forever favourite.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                                alt="Continental food"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Continental</h4>
+                                <p>Always up for trying something new.</p>
+                            </div>
+                        </article>
+
+                        <!-- MIDDLE EASTERN & MEDITERRANEAN -->
+                        <article class="interest-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=900&amp;q=90"
+                                alt="Fresh Middle Eastern and Mediterranean food"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Middle Eastern &amp; Mediterranean</h4>
+                                <p>
+                                    Exploring flavours from hummus, falafel and shawarma
+                                    to Mediterranean mezze, grilled dishes and fresh salads.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- TRAVEL -->
+                <div class="interest-category">
+                    <div class="category-heading">
+                        <span class="category-number">04</span>
+                        <div>
+                            <h3>Exploring New Places</h3>
+                            <p>
+                                New places, new experiences and memories
+                                worth keeping.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="interest-gallery">
+
+                        <article class="interest-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                                alt="Goa beach"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Goa</h4>
+                                <p>Beaches and sunsets.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                                alt="Manali mountains"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Manali</h4>
+                                <p>Mountain views and cool weather.</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                                alt="Kashmir landscape"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Kashmir</h4>
+                                <p>Scenic landscapes.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- BOOKS & READING -->
+                <div class="interest-category books-category">
+                    <div class="category-heading">
+                        <span class="category-number">05</span>
+                        <div>
+                            <h3>Books &amp; Reading</h3>
+                            <p>Stories, ideas and knowledge that make every page worth exploring.</p>
+                        </div>
+                    </div>
+
+                    <div class="interest-gallery books-gallery">
+
+                        <article class="interest-item book-item">
+                            <img
+                                src="https://covers.openlibrary.org/b/isbn/9780439708180-L.jpg"
+                                alt="Harry Potter and the Philosopher's Stone"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>Harry Potter and the Philosopher's Stone</h4>
+                                <p>J.K. Rowling</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item book-item">
+                            <img
+                                src="https://covers.openlibrary.org/b/isbn/9780061122415-L.jpg"
+                                alt="The Alchemist"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>The Alchemist</h4>
+                                <p>Paulo Coelho</p>
+                            </div>
+                        </article>
+
+                        <article class="interest-item book-item">
+                            <img
+                                src="https://covers.openlibrary.org/b/isbn/9780525478812-L.jpg"
+                                alt="The Fault in Our Stars"
+                                loading="lazy"
+                            >
+                            <div>
+                                <h4>The Fault in Our Stars</h4>
+                                <p>John Green</p>
+                            </div>
+                        </article>
+
+                    </div>
                 </div>
 
             </div>
         </section>
 
-
-<!-- =================================
-     MY INTERESTS
-     ================================= -->
-
-<section class="section interests-section" id="interests">
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="section-tag">BEYOND TECHNOLOGY</span>
-            <h2>My Personal <span class="gradient-text">Interests</span></h2>
-            <p>A glimpse into the things I enjoy outside my professional life.</p>
-        </div>
-
-        <!-- MUSIC -->
-        <div class="interest-category reveal">
-
-            <div class="interest-intro">
-                <span class="interest-number">01 / MUSIC</span>
-                <h3>Music is My Escape</h3>
-                <p>
-                    Music is one of my favourite ways to relax and recharge.
-                    I enjoy different genres, especially melodies and powerful
-                    bass beats. These are some of my favourite artists.
-                </p>
-            </div>
-
-            <div class="interest-gallery">
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=700"
-                         alt="Concert atmosphere" loading="lazy">
-                    <h4>The Weeknd</h4>
-                    <p>Melodic vibes and iconic beats</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700"
-                         alt="Live musical performance" loading="lazy">
-                    <h4>Anirudh</h4>
-                    <p>Energetic music and powerful soundtracks</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700"
-                         alt="Singer performing on stage" loading="lazy">
-                    <h4>Dua Lipa</h4>
-                    <p>Pop music and dance beats</p>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- MOVIES -->
-        <div class="interest-category reveal">
-
-            <div class="interest-intro">
-                <span class="interest-number">02 / CINEMA</span>
-                <h3>Stories That Stay With Me</h3>
-                <p>
-                    I enjoy watching movies, especially Tamil cinema.
-                    I appreciate engaging storytelling, memorable characters
-                    and powerful performances. STR is one of my favourites.
-                </p>
-            </div>
-
-            <div class="interest-gallery">
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700"
-                         alt="Cinema theatre" loading="lazy">
-                    <h4>Tamil Cinema</h4>
-                    <p>Stories, performances and entertainment</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=700"
-                         alt="Cinematic film production" loading="lazy">
-                    <h4>STR</h4>
-                    <p>A favourite personality in Tamil cinema</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=700"
-                         alt="Movie screening" loading="lazy">
-                    <h4>Movie Nights</h4>
-                    <p>Enjoying great films and storytelling</p>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- FOOD -->
-        <div class="interest-category reveal">
-
-            <div class="interest-intro">
-                <span class="interest-number">03 / FOOD</span>
-                <h3>Good Food, Great Mood</h3>
-                <p>
-                    Food is another thing I genuinely enjoy.
-                    Biryani is one of my favourites, and I also love
-                    exploring different Continental dishes.
-                </p>
-            </div>
-
-            <div class="interest-gallery">
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?w=700"
-                         alt="Biryani dish" loading="lazy">
-                    <h4>Biryani</h4>
-                    <p>A favourite meal</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=700"
-                         alt="Continental pasta dish" loading="lazy">
-                    <h4>Continental</h4>
-                    <p>Enjoying different flavours</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700"
-                         alt="Freshly prepared food" loading="lazy">
-                    <h4>Food Exploration</h4>
-                    <p>Trying different dishes</p>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- BOOKS -->
-        <div class="interest-category reveal">
-
-            <div class="interest-intro">
-                <span class="interest-number">04 / BOOKS</span>
-                <h3>Pages That Teach</h3>
-                <p>
-                    Books are how I keep learning at my own pace, from
-                    programming and database fundamentals to anything
-                    that sparks curiosity.
-                </p>
-            </div>
-
-            <div class="interest-gallery">
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=700"
-                         alt="Open book on a table" loading="lazy">
-                    <h4>Technical Books</h4>
-                    <p>C#, .NET and database fundamentals</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=700"
-                         alt="Library shelves full of books" loading="lazy">
-                    <h4>Reading Time</h4>
-                    <p>A quiet way to recharge and learn</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700"
-                         alt="Stack of books" loading="lazy">
-                    <h4>Lifelong Learning</h4>
-                    <p>Always one more idea to explore</p>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- TRAVEL -->
-        <div class="interest-category reveal">
-
-            <div class="interest-intro">
-                <span class="interest-number">05 / TRAVEL</span>
-                <h3>Exploring New Places</h3>
-                <p>
-                    Travelling gives me an opportunity to explore new
-                    destinations, experience different surroundings and
-                    create unforgettable memories. Goa is a place I love.
-                </p>
-            </div>
-
-            <div class="interest-gallery">
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=700"
-                         alt="Goa beach scenery" loading="lazy">
-                    <h4>Goa</h4>
-                    <p>Beaches and beautiful views</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
-                         alt="Beautiful mountain landscape" loading="lazy">
-                    <h4>Nature</h4>
-                    <p>Discovering beautiful landscapes</p>
-                </article>
-
-                <article class="interest-item">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700"
-                         alt="Travel destination beside a lake" loading="lazy">
-                    <h4>Exploration</h4>
-                    <p>New places and new experiences</p>
-                </article>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
         <!-- FAMILY -->
         <section class="section family-section" id="family">
             <div class="container">
 
-                <div class="section-heading reveal">
-                    <span class="section-tag">MY BIGGEST SUPPORT SYSTEM</span>
-                    <h2>My <span class="gradient-text">Family</span></h2>
-                    <p>The people who inspire and support me.</p>
+                <div class="section-heading">
+                    <span class="section-tag">MY BIGGEST SUPPORT</span>
+                    <h2>My <span class="accent-text">Family</span></h2>
+                    <p>The people who make everything meaningful.</p>
                 </div>
-
-                <figure class="family-banner reveal">
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1400"
-                         alt="Illustrative family group photograph" loading="lazy">
-                    <figcaption>Family is where everything begins.</figcaption>
-                </figure>
 
                 <div class="family-grid">
 
-                    <article class="flip-card reveal" tabindex="0" role="button"
-                             aria-pressed="false"
-                             aria-label="Father: press to flip the card">
-                        <div class="flip-inner">
-                            <div class="flip-face flip-front">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600"
-                                     alt="Illustrative portrait for father" loading="lazy">
-                                <span class="flip-label">Father</span>
-                            </div>
-                            <div class="flip-face flip-back">
-                                <h3>Father</h3>
-                                <p>My role model and steady support, who taught me to keep going.</p>
-                            </div>
-                        </div>
-                    </article>
+                    <button class="family-flip-card" type="button" aria-pressed="false">
+                        <span class="family-card-inner">
+                            <span class="family-card-front">
+                                <span class="family-avatar">F</span>
+                                <strong>Father</strong>
+                                <small>My guide and inspiration</small>
+                            </span>
 
-                    <article class="flip-card reveal" tabindex="0" role="button"
-                             aria-pressed="false"
-                             aria-label="Mother: press to flip the card">
-                        <div class="flip-inner">
-                            <div class="flip-face flip-front">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600"
-                                     alt="Illustrative portrait for mother" loading="lazy">
-                                <span class="flip-label">Mother</span>
-                            </div>
-                            <div class="flip-face flip-back">
-                                <h3>Mother</h3>
-                                <p>The heart of our home. Her care keeps me grounded.</p>
-                            </div>
-                        </div>
-                    </article>
+                            <span class="family-card-back">
+                                <strong>Father</strong>
+                                <small>
+                                    With gratitude for his guidance and support.
+                                </small>
+                            </span>
+                        </span>
+                    </button>
 
-                    <article class="flip-card reveal" tabindex="0" role="button"
-                             aria-pressed="false"
-                             aria-label="Sister: press to flip the card">
-                        <div class="flip-inner">
-                            <div class="flip-face flip-front">
-                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600"
-                                     alt="Illustrative portrait for sister" loading="lazy">
-                                <span class="flip-label">Sister</span>
-                            </div>
-                            <div class="flip-face flip-back">
-                                <h3>Sister</h3>
-                                <p>My friend and biggest cheerleader, always ready with a laugh.</p>
-                            </div>
-                        </div>
-                    </article>
+                    <button class="family-flip-card" type="button" aria-pressed="false">
+                        <span class="family-card-inner">
+                            <span class="family-card-front">
+                                <span class="family-avatar">M</span>
+                                <strong>Mother</strong>
+                                <small>My constant support</small>
+                            </span>
+
+                            <span class="family-card-back">
+                                <strong>Mother</strong>
+                                <small>
+                                    With love for her care and encouragement.
+                                </small>
+                            </span>
+                        </span>
+                    </button>
+
+                    <button class="family-flip-card" type="button" aria-pressed="false">
+                        <span class="family-card-inner">
+                            <span class="family-card-front">
+                                <span class="family-avatar">S</span>
+                                <strong>Sister</strong>
+                                <small>A special part of my life</small>
+                            </span>
+
+                            <span class="family-card-back">
+                                <strong>Sister</strong>
+                                <small>
+                                    Always a special part of my journey.
+                                </small>
+                            </span>
+                        </span>
+                    </button>
 
                 </div>
-
             </div>
         </section>
 
@@ -719,76 +750,83 @@
         <section class="section hobbies-section" id="hobbies">
             <div class="container">
 
-                <div class="section-heading reveal">
-                    <span class="section-tag">MY FREE TIME</span>
-                    <h2>My <span class="gradient-text">Hobbies</span></h2>
-                    <p>Activities I enjoy outside work and learning.</p>
-                </div>
+                <header class="section-heading hobbies-heading">
+                    <p class="eyebrow">BEYOND THE EVERYDAY</p>
+                    <h2>My <span class="accent-text">Interests.</span></h2>
+                    <p class="section-sub">
+                        A few things I enjoy beyond technology.
+                    </p>
+                </header>
 
-                <div class="hobby-grid">
+                <div class="hobbies-grid">
 
-                    <article class="hobby-card tall reveal" tabindex="0" role="button"
-                             data-title="Watching Movies"
-                             data-text="Movies are my favourite way to unwind. I enjoy Tamil cinema for its storytelling and performances, and a good movie night never gets old."
-                             aria-label="Watching Movies: open details">
-                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900"
-                             alt="Movie theatre" loading="lazy">
-                        <div class="hobby-caption">
-                            <h3>Watching Movies</h3>
-                            <span>Tap to read more</span>
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Cinematic movie theatre"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
+                            <h3>Movies</h3>
                         </div>
                     </article>
 
-                    <article class="hobby-card short reveal" tabindex="0" role="button"
-                             data-title="Cricket"
-                             data-text="Cricket is one of my favourite sports. Playing a casual match or following a close finish, it always brings energy and excitement."
-                             aria-label="Cricket: open details">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900"
-                             alt="Sports field" loading="lazy">
-                        <div class="hobby-caption">
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Cricket field"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
                             <h3>Cricket</h3>
-                            <span>Tap to read more</span>
                         </div>
                     </article>
 
-                    <article class="hobby-card  reveal" tabindex="0" role="button"
-                             data-title="Football"
-                             data-text="Football is fast, team-driven and fun. I enjoy both playing with friends and watching big matches."
-                             aria-label="Football: open details">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900"
-                             alt="Football field" loading="lazy">
-                        <div class="hobby-caption">
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Football stadium"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
                             <h3>Football</h3>
-                            <span>Tap to read more</span>
                         </div>
                     </article>
 
-                    <article class="hobby-card tall reveal" tabindex="0" role="button"
-                             data-title="Gaming"
-                             data-text="Gaming helps me relax and sharpen quick decision-making, strategy and teamwork."
-                             aria-label="Gaming: open details">
-                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=900"
-                             alt="Gaming setup" loading="lazy">
-                        <div class="hobby-caption">
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Gaming setup"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
                             <h3>Gaming</h3>
-                            <span>Tap to read more</span>
                         </div>
                     </article>
 
-                    <article class="hobby-card short reveal" tabindex="0" role="button"
-                             data-title="Reading"
-                             data-text="Reading lets me keep learning at my own pace, from technical books to anything that sparks my curiosity."
-                             aria-label="Reading: open details">
-                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=900"
-                             alt="Books for reading" loading="lazy">
-                        <div class="hobby-caption">
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Library and books"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
                             <h3>Reading</h3>
-                            <span>Tap to read more</span>
+                        </div>
+                    </article>
+
+                    <article class="hobby-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+                            alt="Horse riding"
+                            loading="lazy"
+                        >
+                        <div class="hobby-overlay">
+                            <h3>Horse Riding</h3>
                         </div>
                     </article>
 
                 </div>
-
             </div>
         </section>
 
@@ -796,78 +834,88 @@
         <section class="section contact-section" id="contact">
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div class="section-heading">
                     <span class="section-tag">LET'S CONNECT</span>
-                    <h2>Have an <span class="gradient-text">Idea?</span></h2>
-                    <p>Let's discuss, collaborate or build something together.</p>
+                    <h2>Have an <span class="accent-text">Idea?</span></h2>
+                    <p>I'd love to hear from you. Let's start a conversation.</p>
                 </div>
 
                 <div class="contact-grid">
 
-                    <a href="mailto:adithyajeevan83@gmail.com"
-                       class="contact-card reveal">
-                        <span class="contact-icon">@</span>
-                        <div>
-                            <h3>Email</h3>
-                            <p>adithyajeevan83@gmail.com</p>
-                        </div>
-                        <span class="contact-arrow">↗</span>
+                    <a
+                        class="contact-card"
+                        href="mailto:adithyajeevan83@gmail.com"
+                    >
+                        <span class="contact-icon">✉</span>
+                        <h3>Email</h3>
+                        <p>adithyajeevan83@gmail.com</p>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/jeevan-adithya-09b12a256/"
-                       target="_blank" rel="noopener noreferrer"
-                       class="contact-card reveal">
+                    <a
+                        class="contact-card"
+                        href="https://www.linkedin.com/in/jeevan-adithya-09b12a256/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span class="contact-icon">in</span>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p>Connect professionally</p>
-                        </div>
-                        <span class="contact-arrow">↗</span>
+                        <h3>LinkedIn</h3>
+                        <p>Connect professionally</p>
                     </a>
 
                 </div>
-
             </div>
         </section>
 
     </main>
 
-    <!-- IMAGE LIGHTBOX / HOBBY MODAL -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
-         aria-label="Expanded view" aria-hidden="true">
-        <button class="lightbox-close" id="lightboxClose"
-                aria-label="Close expanded view">×</button>
-        <figure class="lightbox-figure">
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                 alt="Expanded photograph" id="lightboxImage">
-            <figcaption class="lightbox-caption" id="lightboxCaption" hidden>
-                <h3 id="lightboxTitle"></h3>
-                <p id="lightboxText"></p>
-            </figcaption>
-        </figure>
-    </div>
-
     <!-- FOOTER -->
-    <footer class="footer" id="footer">
+    <footer class="footer">
         <div class="container footer-content">
-            <a href="#hero" class="logo">JA<span>.</span></a>
-            <div class="footer-center">
-                <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/jeevan-adithya-09b12a256/"
-                       target="_blank" rel="noopener noreferrer"
-                       aria-label="LinkedIn">in</a>
-                    <a href="https://github.com/jeevanadithya624"
-                       target="_blank" rel="noopener noreferrer"
-                       aria-label="GitHub">gh</a>
-                    <a href="mailto:adithyajeevan83@gmail.com"
-                       aria-label="Email">@</a>
-                </div>
-                <p>Built with HTML, CSS &amp; JS | Deployed via GitHub Actions</p>
-                <p>© <span id="currentYear"></span> Jeevan Adithya. All rights reserved.</p>
-            </div>
-            <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+
+            <a href="#hero" class="logo">
+                JA<span>.</span>
+            </a>
+
+            <p>
+                © <span id="currentYear"></span>
+                Jeevan Adithya. All rights reserved.
+            </p>
+
+            <a class="back-to-top" href="#hero">
+                Back to top ↑
+            </a>
+
         </div>
     </footer>
 
+    <!-- FLOATING BACK TO TOP -->
+    <a
+        class="floating-back-to-top"
+        id="floatingBackToTop"
+        href="#hero"
+        aria-label="Back to top"
+        title="Back to top"
+    >
+        ↑
+    </a>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+        <img src="data:," alt="" id="lightboxImage">
+
+        <p id="lightboxCaption"></p>
+
+    </div>
+
 </body>
 </html>
+
