@@ -1,10 +1,12 @@
-name: Validate HTML & CSS
+﻿name: Validate HTML & CSS
 
 on:
   push:
-    branches: [main, develop]
+    branches:
+      - '**'
   pull_request:
-    branches: [main, develop]
+    branches:
+      - '**'
 
 permissions:
   contents: read
@@ -33,3 +35,4 @@ jobs:
       # stylelint is used instead of CSSLint because CSSLint cannot parse CSS variables.
       - name: Validate CSS files
         run: stylelint "css/*.css" --config .stylelintrc.json
+
