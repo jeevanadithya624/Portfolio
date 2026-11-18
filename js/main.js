@@ -1,316 +1,49 @@
 
-/* =========================================
-   JEEVAN ADITHYA - PORTFOLIO JAVASCRIPT
-   ========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
 
-    const body = document.body;
     const root = document.documentElement;
+    const body = document.body;
 
-    /* =====================================
-       1. PRELOADER
-       ===================================== */
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Enable JavaScript-specific animation styles.
+    root.classList.add("js");
+
+
+    // ==========================================
+    // 1. PRELOADER
+    // ==========================================
 
     const preloader = document.getElementById("preloader");
 
     function hidePreloader() {
-        preloader?.classList.add("hide");
+        if (!preloader) return;
+
+        preloader.classList.add("loaded");
+        preloader.classList.add("hide");
     }
 
     window.addEventListener("load", hidePreloader);
 
-    // Fallback
-    setTimeout(hidePreloader, 2500);
-
-
-    /* =====================================
-       2. MOBILE NAVIGATION
-       ===================================== */
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    function closeMenu() {
-        navMenu?.classList.remove("open");
-
-        menuToggle?.setAttribute("aria-expanded", "false");
-        menuToggle?.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
+    if (document.readyState === "complete") {
+        hidePreloader();
     }
 
-    menuToggle?.addEventListener("click", () => {
+    setTimeout(hidePreloader, 2000);
 
-        const isOpen = navMenu.classList.toggle("open");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
+    // ==========================================
+    // 2. THEME SWITCHER
+    // Dark -> Light -> Emerald -> Dark
+    // ==========================================
 
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
-        );
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
 
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", closeMenu);
-    });
-
-
-    /* =====================================
-       3. HEADER SCROLL EFFECT
-       ===================================== */
-
-    const header = document.getElementById("header");
-    const scrollProgress = document.getElementById("scrollProgress");
-
-    function handleScroll() {
-
-        const scrollTop = window.scrollY;
-
-        const scrollableHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
-
-        const progress = scrollableHeight > 0
-            ? (scrollTop / scrollableHeight) * 100
-            : 0;
-
-        if (scrollProgress) {
-            scrollProgress.style.width = `${progress}%`;
-        }
-
-        header?.classList.toggle(
-            "scrolled",
-            scrollTop > 40
-        );
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        handleScroll,
-        { passive: true }
-    );
-
-    handleScroll();
-
-
-    /* =====================================
-       4. ACTIVE NAVIGATION LINK
-       ===================================== */
-
-    const sections = document.querySelectorAll(
-        "main section[id]"
-    );
-
-    if ("IntersectionObserver" in window) {
-
-        const sectionObserver = new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        const currentId = entry.target.id;
-
-                        navLinks.forEach(link => {
-
-                            const isActive =
-                                link.getAttribute("href") ===
-                                `#${currentId}`;
-
-                            link.classList.toggle(
-                                "active",
-                                isActive
-                            );
-
-                        });
-
-                    }
-
-                });
-
-            },
-            {
-                rootMargin: "-35% 0px -55% 0px"
-            }
-        );
-
-        sections.forEach(section => {
-            sectionObserver.observe(section);
-        });
-
-    }
-
-
-    /* =====================================
-       5. TYPING ANIMATION
-       ===================================== */
-
-    const typingText = document.getElementById("typingText");
-
-    const typingWords = [
-        "Computer Science Graduate",
-        "Developer",
-        "Problem Solver",
-        "Technology Enthusiast"
-    ];
-
-    let wordIndex = 0;
-    let characterIndex = 0;
-    let deleting = false;
-
-    function typeEffect() {
-
-        if (!typingText) return;
-
-        const currentWord = typingWords[wordIndex];
-
-        if (deleting) {
-            characterIndex--;
-        } else {
-            characterIndex++;
-        }
-
-        typingText.textContent =
-            currentWord.substring(0, characterIndex);
-
-        let delay = deleting ? 45 : 85;
-
-        if (
-            !deleting &&
-            characterIndex === currentWord.length
-        ) {
-
-            deleting = true;
-            delay = 1400;
-
-        } else if (
-            deleting &&
-            characterIndex === 0
-        ) {
-
-            deleting = false;
-
-            wordIndex =
-                (wordIndex + 1) % typingWords.length;
-
-            delay = 400;
-
-        }
-
-        setTimeout(typeEffect, delay);
-
-    }
-
-    if (typingText) {
-        typeEffect();
-    }
-
-
-    /* =====================================
-       6. SCROLL REVEAL ANIMATION
-       ===================================== */
-
-    const revealElements = document.querySelectorAll(
-        ".reveal"
-    );
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver = new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-
-    } else {
-
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-
-    }
-
-
-    /* =====================================
-       7. SKILL BAR ANIMATION
-       ===================================== */
-
-    const skillBars = document.querySelectorAll(".skill-progress");
-
-    function fillBar(bar) {
-        bar.style.setProperty("--w", bar.dataset.width || "0%");
-        bar.classList.add("filled");
-    }
-
-    if ("IntersectionObserver" in window) {
-
-        const skillObserver = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        fillBar(entry.target);
-                        skillObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        skillBars.forEach(bar => skillObserver.observe(bar));
-
-    } else {
-        skillBars.forEach(fillBar);
-    }
-
-
-    /* =====================================
-       8. THEME SWITCHER
-       ===================================== */
-
-    const themeToggle = document.getElementById(
-        "themeToggle"
-    );
-
-    const themeIcon = document.getElementById(
-        "themeIcon"
-    );
-
-    const themes = [
-        "dark",
-        "light",
-        "emerald"
-    ];
+    const themes = ["dark", "light", "emerald"];
 
     const themeIcons = {
         dark: "☾",
@@ -318,128 +51,483 @@ document.addEventListener("DOMContentLoaded", () => {
         emerald: "✦"
     };
 
-    function applyTheme(name) {
-        root.setAttribute("data-theme", name);
-        if (themeIcon) {
-            themeIcon.textContent = themeIcons[name];
+    function applyTheme(theme) {
+        if (!themes.includes(theme)) {
+            theme = "dark";
         }
-    }
 
-    let savedTheme = null;
-    try {
-        savedTheme = localStorage.getItem("portfolio-theme");
-    } catch (error) {
-        savedTheme = null;
-    }
-
-    applyTheme(themes.includes(savedTheme) ? savedTheme : "dark");
-
-    themeToggle?.addEventListener("click", () => {
-
-        const currentTheme =
-            root.getAttribute("data-theme") || "dark";
-
-        const nextTheme =
-            themes[(themes.indexOf(currentTheme) + 1) % themes.length];
-
-        applyTheme(nextTheme);
+        root.setAttribute("data-theme", theme);
 
         try {
-            localStorage.setItem("portfolio-theme", nextTheme);
+            localStorage.setItem("ja-theme", theme);
         } catch (error) {
-            /* storage unavailable - theme still changes for this visit */
+            console.warn("Theme preference could not be saved.");
         }
 
-    });
-
-
-    /* =====================================
-       9. LIGHTBOX / HOBBY MODAL
-       ===================================== */
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxClose = document.getElementById("lightboxClose");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxTitle = document.getElementById("lightboxTitle");
-    const lightboxText = document.getElementById("lightboxText");
-
-    let previousFocus = null;
-
-    function openLightbox(image, title = "", text = "") {
-
-        if (!lightbox || !lightboxImage) return;
-
-        previousFocus = document.activeElement;
-
-        lightboxImage.src = image.currentSrc || image.src;
-        lightboxImage.alt = image.alt || "Expanded photograph";
-
-        const hasCaption = Boolean(title || text);
-
-        if (lightboxCaption) {
-            lightboxCaption.hidden = !hasCaption;
-            lightboxTitle.textContent = title;
-            lightboxText.textContent = text;
+        if (themeIcon) {
+            themeIcon.textContent = themeIcons[theme];
         }
 
-        lightbox.classList.add("open");
-        lightbox.setAttribute("aria-hidden", "false");
-        body.classList.add("no-scroll");
+        if (themeToggle) {
+            themeToggle.setAttribute(
+                "aria-label",
+                `Current theme: ${theme}. Change theme`
+            );
 
-        lightboxClose?.focus();
-
+            themeToggle.setAttribute(
+                "title",
+                `Theme: ${theme}`
+            );
+        }
     }
 
-    function closeLightbox() {
+    let savedTheme = "dark";
 
-        if (!lightbox || !lightbox.classList.contains("open")) return;
-
-        lightbox.classList.remove("open");
-        lightbox.setAttribute("aria-hidden", "true");
-        body.classList.remove("no-scroll");
-
-        previousFocus?.focus();
-
+    try {
+        savedTheme = localStorage.getItem("ja-theme") || "dark";
+    } catch (error) {
+        console.warn("Saved theme could not be accessed.");
     }
 
-    // Plain photo zoom (interests, banner, projects)
-    document.querySelectorAll(
-        ".interest-item img, .family-banner img, .project-card img"
-    ).forEach(image => {
+    applyTheme(savedTheme);
 
-        image.classList.add("zoomable");
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            const currentTheme =
+                root.getAttribute("data-theme") || "dark";
 
-        image.addEventListener("click", () => openLightbox(image));
+            const currentIndex = themes.indexOf(currentTheme);
 
-    });
+            const nextTheme =
+                themes[(currentIndex + 1) % themes.length];
 
-    // Hobby cards open the modal with a short write-up
-    document.querySelectorAll(".hobby-card").forEach(card => {
+            applyTheme(nextTheme);
+        });
+    }
 
-        const open = () => {
-            const image = card.querySelector("img");
-            if (image) {
-                openLightbox(
-                    image,
-                    card.dataset.title,
-                    card.dataset.text
-                );
-            }
-        };
 
-        card.addEventListener("click", open);
+    // ==========================================
+    // 3. MOBILE NAVIGATION
+    // ==========================================
 
-        card.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                open();
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function closeMenu() {
+        if (!menuToggle || !navMenu) return;
+
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function openMenu() {
+        if (!menuToggle || !navMenu) return;
+
+        menuToggle.classList.add("active");
+        navMenu.classList.add("open");
+
+        menuToggle.setAttribute("aria-expanded", "true");
+    }
+
+    if (menuToggle && navMenu) {
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.addEventListener("click", () => {
+            if (navMenu.classList.contains("open")) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
 
+        navLinks.forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", event => {
+            if (
+                !navMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+                closeMenu();
+            }
+        });
+    }
+
+
+    // ==========================================
+    // 4. HEADER SCROLL ANIMATION
+    // ==========================================
+
+    const header = document.getElementById("header");
+
+    function updateHeader() {
+        if (!header) return;
+
+        header.classList.toggle(
+            "scrolled",
+            window.scrollY > 50
+        );
+    }
+
+
+    // ==========================================
+    // 5. SCROLL PROGRESS
+    // ==========================================
+
+    const scrollProgress =
+        document.getElementById("scrollProgress");
+
+    function updateScrollProgress() {
+        if (!scrollProgress) return;
+
+        const totalHeight =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        if (totalHeight <= 0) {
+            scrollProgress.style.width = "0%";
+            return;
+        }
+
+        const progress =
+            (window.scrollY / totalHeight) * 100;
+
+        scrollProgress.style.width =
+            `${Math.min(progress, 100)}%`;
+    }
+
+
+    // ==========================================
+    // 6. FLOATING BACK TO TOP
+    // ==========================================
+
+    const backToTop =
+        document.getElementById("floatingBackToTop");
+
+    function updateBackToTop() {
+        if (!backToTop) return;
+
+        backToTop.classList.toggle(
+            "show",
+            window.scrollY > 400
+        );
+    }
+
+    if (backToTop) {
+        backToTop.addEventListener("click", event => {
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: reducedMotion ? "auto" : "smooth"
+            });
+        });
+    }
+
+
+    // ==========================================
+    // 7. COMBINED SCROLL HANDLER
+    // ==========================================
+
+    let scrollScheduled = false;
+
+    function handleScroll() {
+        if (scrollScheduled) return;
+
+        scrollScheduled = true;
+
+        window.requestAnimationFrame(() => {
+            updateHeader();
+            updateScrollProgress();
+            updateBackToTop();
+
+            scrollScheduled = false;
+        });
+    }
+
+    window.addEventListener("scroll", handleScroll, {
+        passive: true
     });
 
-    lightboxClose?.addEventListener("click", closeLightbox);
+    window.addEventListener("resize", handleScroll);
+
+    handleScroll();
+
+
+    // ==========================================
+    // 8. HERO TYPING ANIMATION
+    // ==========================================
+
+    const typingText =
+        document.getElementById("typingText");
+
+    const typingWords = [
+        "Technology Enthusiast",
+        "Computer Science Graduate",
+        "Developer",
+        "Problem Solver"
+    ];
+
+    if (typingText) {
+        if (reducedMotion) {
+            typingText.textContent = typingWords[0];
+        } else {
+            let wordIndex = 0;
+            let characterIndex = 0;
+            let deleting = false;
+
+            function typeEffect() {
+                const currentWord =
+                    typingWords[wordIndex];
+
+                if (!deleting) {
+                    characterIndex++;
+
+                    typingText.textContent =
+                        currentWord.substring(0, characterIndex);
+
+                    if (characterIndex === currentWord.length) {
+                        deleting = true;
+
+                        setTimeout(typeEffect, 1500);
+                        return;
+                    }
+                } else {
+                    characterIndex--;
+
+                    typingText.textContent =
+                        currentWord.substring(0, characterIndex);
+
+                    if (characterIndex === 0) {
+                        deleting = false;
+
+                        wordIndex =
+                            (wordIndex + 1) % typingWords.length;
+                    }
+                }
+
+                setTimeout(
+                    typeEffect,
+                    deleting ? 45 : 85
+                );
+            }
+
+            typeEffect();
+        }
+    }
+
+
+    // ==========================================
+    // 9. CINEMATIC SCROLL REVEAL
+    // ==========================================
+
+    const revealSelectors = [
+        ".section-header",
+        ".journey-card",
+        ".skill-category",
+        ".project-card",
+        ".interest-category",
+        ".interest-panel",
+        ".interest-card",
+        ".family-flip-card",
+        ".hobby-card",
+        ".contact-card"
+    ];
+
+    const revealElements = document.querySelectorAll(
+        revealSelectors.join(",")
+    );
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+        revealElements.forEach(element => {
+            element.classList.add("reveal", "visible");
+        });
+    } else {
+        const revealObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -45px 0px"
+            }
+        );
+
+        revealElements.forEach((element, index) => {
+            element.classList.add("reveal");
+
+            // Small stagger for consecutive cards.
+            element.style.transitionDelay =
+                `${(index % 4) * 100}ms`;
+
+            revealObserver.observe(element);
+        });
+    }
+
+
+    // ==========================================
+    // 10. SKILL BAR ANIMATION
+    // ==========================================
+
+    const skillBars = document.querySelectorAll(
+        ".skill-bar span[data-width]"
+    );
+
+    function animateSkillBar(bar) {
+        const targetWidth = Number.parseFloat(
+            bar.getAttribute("data-width")
+        );
+
+        if (!Number.isFinite(targetWidth)) return;
+
+        bar.style.width =
+            `${Math.min(Math.max(targetWidth, 0), 100)}%`;
+    }
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+        skillBars.forEach(animateSkillBar);
+    } else {
+        const skillObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBar(entry.target);
+
+                        skillObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.3
+            }
+        );
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    }
+
+
+    // ==========================================
+    // 11. FAMILY FLIP CARDS
+    // ==========================================
+
+    const familyCards = document.querySelectorAll(
+        ".family-flip-card"
+    );
+
+    familyCards.forEach(card => {
+        card.setAttribute("aria-pressed", "false");
+
+        card.addEventListener("click", () => {
+            const flipped =
+                card.classList.toggle("flipped");
+
+            card.setAttribute(
+                "aria-pressed",
+                String(flipped)
+            );
+        });
+    });
+
+
+    // ==========================================
+    // 12. IMAGE LIGHTBOX
+    // ==========================================
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+    const lightboxCaption =
+        document.getElementById("lightboxCaption");
+
+    const lightboxClose =
+        document.getElementById("lightboxClose");
+
+    const galleryImages = document.querySelectorAll(
+        ".interest-item img, " +
+        ".interest-card img, " +
+        ".hobby-card img, " +
+        ".project-image img"
+    );
+
+    let previouslyFocusedElement = null;
+
+    function openLightbox(image) {
+        if (!lightbox || !lightboxImage) return;
+
+        previouslyFocusedElement = document.activeElement;
+
+        lightboxImage.src =
+            image.currentSrc || image.src;
+
+        lightboxImage.alt =
+            image.alt || "Gallery image";
+
+        const parent = image.closest(
+            ".interest-item, .interest-card, .hobby-card, .project-card"
+        );
+
+        const heading = parent?.querySelector("h3, h4");
+
+        if (lightboxCaption) {
+            lightboxCaption.textContent =
+                heading?.textContent?.trim() ||
+                image.alt ||
+                "";
+        }
+
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+
+        body.style.overflow = "hidden";
+
+        lightboxClose?.focus();
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+
+        body.style.overflow = "";
+
+        if (lightboxImage) {
+            lightboxImage.removeAttribute("src");
+        }
+
+        previouslyFocusedElement?.focus();
+
+        previouslyFocusedElement = null;
+    }
+
+    galleryImages.forEach(image => {
+        image.style.cursor = "zoom-in";
+
+        image.addEventListener("click", () => {
+            openLightbox(image);
+        });
+    });
+
+    lightboxClose?.addEventListener(
+        "click",
+        closeLightbox
+    );
 
     lightbox?.addEventListener("click", event => {
         if (event.target === lightbox) {
@@ -448,213 +536,115 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================
-       10. KEYBOARD CONTROLS
-       ===================================== */
+    // ==========================================
+    // 13. KEYBOARD ACCESSIBILITY
+    // ==========================================
 
     document.addEventListener("keydown", event => {
-
         if (event.key === "Escape") {
             closeMenu();
-            closeLightbox();
+
+            if (lightbox?.classList.contains("active")) {
+                closeLightbox();
+            }
         }
 
-    });
+        if (
+            event.key === "Tab" &&
+            lightbox?.classList.contains("active")
+        ) {
+            const focusable = lightbox.querySelectorAll(
+                'button, a[href], input, [tabindex]:not([tabindex="-1"])'
+            );
 
+            if (!focusable.length) return;
 
-    /* =====================================
-       10b. FAMILY FLIP CARDS
-       ===================================== */
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
 
-    document.querySelectorAll(".flip-card").forEach(card => {
-
-        const toggle = () => {
-            const flipped = card.classList.toggle("flipped");
-            card.setAttribute("aria-pressed", String(flipped));
-        };
-
-        card.addEventListener("click", toggle);
-
-        card.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
+            if (event.shiftKey && document.activeElement === first) {
                 event.preventDefault();
-                toggle();
+                last.focus();
+            } else if (
+                !event.shiftKey &&
+                document.activeElement === last
+            ) {
+                event.preventDefault();
+                first.focus();
             }
-        });
-
+        }
     });
 
 
-    /* =====================================
-       10c. JOURNEY "SHOW MORE" TOGGLES
-       ===================================== */
+    // ==========================================
+    // 14. SMOOTH INTERNAL NAVIGATION
+    // ==========================================
 
-    document.querySelectorAll(".show-more").forEach(button => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", event => {
+            const targetId =
+                link.getAttribute("href");
 
-        button.addEventListener("click", () => {
+            if (!targetId || targetId === "#") return;
 
-            const card = button.closest(".timeline-card");
+            let target;
 
-            const expanded = card.classList.toggle("expanded");
+            try {
+                target = document.querySelector(targetId);
+            } catch (error) {
+                return;
+            }
 
-            button.setAttribute("aria-expanded", String(expanded));
-            button.textContent = expanded ? "Show less" : "Show more";
+            if (!target) return;
 
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth",
+                block: "start"
+            });
         });
-
     });
 
 
-    /* =====================================
-       11. BACK TO TOP
-       ===================================== */
+    // ==========================================
+    // 15. FOOTER YEAR
+    // ==========================================
 
-    const backToTop = document.querySelector(
-        ".back-to-top"
-    );
-
-    backToTop?.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
-
-
-    /* =====================================
-       12. CURRENT YEAR
-       ===================================== */
-
-    const currentYear = document.getElementById(
-        "currentYear"
-    );
+    const currentYear =
+        document.getElementById("currentYear");
 
     if (currentYear) {
-
         currentYear.textContent =
             new Date().getFullYear();
-
     }
 
 
-    /* =====================================
-       13. BACKGROUND PARTICLES
-       ===================================== */
+    // ==========================================
+    // 16. IMAGE LOADING ENHANCEMENT
+    // ==========================================
 
-    const particlesContainer = document.getElementById(
-        "particles"
-    );
+    const images = document.querySelectorAll("img");
 
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (particlesContainer && !reducedMotion) {
-
-        for (let i = 0; i < 22; i++) {
-
-            const particle = document.createElement("span");
-
-            particle.className = "particle";
-
-            particle.style.left =
-                `${Math.random() * 100}%`;
-
-            particle.style.animationDelay =
-                `${Math.random() * 8}s`;
-
-            particle.style.animationDuration =
-                `${6 + Math.random() * 7}s`;
-
-            particlesContainer.appendChild(particle);
-
+    images.forEach(image => {
+        if (image.complete && image.naturalWidth > 0) {
+            image.classList.add("image-loaded");
+        } else {
+            image.addEventListener("load", () => {
+                image.classList.add("image-loaded");
+            }, { once: true });
         }
-
-    }
-
-
-    /* =====================================
-       14. CUSTOM CURSOR
-       ===================================== */
-
-    const customCursor = document.getElementById(
-        "customCursor"
-    );
-
-    const finePointer = window.matchMedia(
-        "(pointer: fine)"
-    ).matches;
-
-    if (customCursor && finePointer) {
-
-        customCursor.classList.add("active");
-
-        document.addEventListener("mousemove", event => {
-            customCursor.style.left = `${event.clientX}px`;
-            customCursor.style.top = `${event.clientY}px`;
-        });
-
-        document.querySelectorAll("a, button").forEach(element => {
-
-            element.addEventListener("mouseenter", () => {
-                customCursor.classList.add("hovering");
-            });
-
-            element.addEventListener("mouseleave", () => {
-                customCursor.classList.remove("hovering");
-            });
-
-        });
-
-    }
-
-
-    /* =====================================
-       15. IMAGE ERROR FALLBACK
-       ===================================== */
-
-    document.querySelectorAll("main img").forEach(image => {
-
-        image.addEventListener("error", () => {
-
-            image.hidden = true;
-
-            const parent = image.parentElement;
-
-            if (parent && !parent.querySelector(".image-fallback")) {
-
-                const fallback = document.createElement("div");
-
-                fallback.className = "image-fallback";
-                fallback.textContent = "Image unavailable";
-
-                parent.prepend(fallback);
-
-            }
-
-        });
-
     });
 
 
-    /* =====================================
-       16. INTEREST CATEGORY ANIMATIONS
-       ===================================== */
+    // ==========================================
+    // 17. INITIALIZATION
+    // ==========================================
 
-    const interestCategories = document.querySelectorAll(
-        ".interest-category"
-    );
+       // ==========================================
+    // 17. INITIALIZATION
+    // ==========================================
 
-    interestCategories.forEach((category, index) => {
-
-        category.style.transitionDelay =
-            `${index * 80}ms`;
-
-    });
-
+    body.classList.add("js-loaded");
 
 });

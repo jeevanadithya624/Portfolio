@@ -1,15 +1,11 @@
-﻿name: Validate HTML & CSS
+name: Validate HTML & CSS
 
 on:
   push:
     branches:
       - '**'
   pull_request:
-    branches:
-      - '**'
-
-permissions:
-  contents: read
+    branches: [main, develop]
 
 jobs:
   validate:
@@ -31,8 +27,5 @@ jobs:
       - name: Validate HTML files
         run: htmlhint "*.html" --config .htmlhintrc
 
-      # theme.css may contain colours; style.css must not (enforced in .stylelintrc.json).
-      # stylelint is used instead of CSSLint because CSSLint cannot parse CSS variables.
       - name: Validate CSS files
         run: stylelint "css/*.css" --config .stylelintrc.json
-
