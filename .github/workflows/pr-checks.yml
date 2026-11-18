@@ -1,0 +1,76 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  check-html-titles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all HTML files have title tags
+        run: |
+          for file in *.html; do
+            if ! grep -q "<title>" "$file"; then
+              echo "ERROR: $file is missing <title> tag"
+              exit 1
+            fi
+          done
+          echo "All HTML files have title tags"
+
+  check-image-alt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # <img> tags span several lines, so a line-based grep would give false alarms.
+      - name: Check images have alt attributes
+        run: |
+          python3 - <<'PY'
+          import glob, re, sys
+          bad = []
+          for path in glob.glob("*.html"):
+              text = open(path, encoding="utf-8").read()
+              for m in re.finditer(r"<img\b[^>]*>", text, flags=re.S | re.I):
+                  if "alt=" not in m.group(0):
+                      line = text[:m.start()].count("\n") + 1
+                      bad.append(f"{path}:{line}")
+          if bad:
+              print("ERROR: images missing alt attributes:", *bad, sep="\n  ")
+              sys.exit(1)
+          print("All images have alt attributes")
+          PY
+
+  check-no-console-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for console.log in JS
+        run: |
+          if grep -rn "console.log" js/*.js; then
+            echo "ERROR: remove console.log before merging"
+            exit 1
+          fi
+          echo "No console.log found"
+
+  check-no-inline-styles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check HTML has no inline styles
+        run: |
+          if grep -n 'style=' *.html; then
+            echo "ERROR: move inline styles into css/style.css"
+            exit 1
+          fi
+          echo "No inline styles found"
+
+  all-checks-passed:
+    runs-on: ubuntu-latest
+    needs: [check-html-titles, check-image-alt, check-no-console-log, check-no-inline-styles]
+    steps:
+      - name: All checks passed
+        run: echo "All PR checks passed! Ready for review."
